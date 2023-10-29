@@ -1,9 +1,9 @@
-/* Eveline CSS
+
  .grid {
     width: 400px;
     height: 400px;
   }
-  
+  /* Eveline CSS
   .square {
     width: 100px;
     height: 100px;
@@ -13,15 +13,24 @@
 
   /* Kristy CSS*/
 .body {
-    background-color: #c3d1ff;margin: 1;font-family:"calibri";
+    background-color: #c3d1ff;
+    margin: 1;
+    font-family:"calibri";
 }
 .h1 {
-  text-align: center; line-height: 2.1;font-weight: normal; color: black
+  margin: 0 auto;
+  text-align: center;
+  line-height: 2.1;
+  font-weight: normal; 
+  color: black;
 }
 .h2 {
-  text-align: center; line-height: 1.1;font-weight: normal; color: black
+  text-align: center; 
+  line-height: 1.1;
+  font-weight: normal; 
+  color: black
 }
-.container {
+#container {
     width: 30%;
     margin-left: auto;
     margin-right: auto;
