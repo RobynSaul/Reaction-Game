@@ -1,10 +1,11 @@
-const divClass = document.getElementsByClassName("square");
-const Go = document.getElementById("StartBtn");
+const divArray = document.getElementsByClassName("square");
+const goPlay = document.getElementById("StartBtn");
 
 //Random number generator - tested, generates a random number from 1 to 6 - not sure about how it's passing the number out?
 function randomSix() {
-    let divNo = Math.floor(Math.random() * 6) + 1;
-    console.log(divNo); //remove later
+    let divNo = Math.floor(Math.random() * 6);
+  /*   console.log(divNo); //remove later */
+  return divNo
     }
 
 //Deactivate all the divs: untested
@@ -16,12 +17,11 @@ divClass.removeEventListener('click', function(){});//the function needs to be t
 
 //Activate one div - untested and needs the click functionality added
 function activate() {
-    randomSix();
-    const divActive = document.getElementById(divNo);
-    divActive.style.backgroundColor = 'red';
-    divActive.addEventListener("click", function(){ //add function here
+    i = randomSix();
+    divArray[i].style.backgroundColor = 'red';
+    // divArray[i].addEventListener("click", function(){ //add function here
         
-    });
+    // });
 }
 
 //Timer
@@ -34,7 +34,43 @@ function timer() {
     console.log("Game over");     
 }
 
+// console timer
+
+function startCountdown(seconds) {
+    let counter = seconds;
+  
+    const interval = setInterval(() => {
+      console.log(counter);
+      counter--;
+  
+      if (counter < 0) {
+        clearInterval(interval)
+        console.log('Game Over!')
+      }
+    }, 1000);
+  }
+  
+//   startCountdown(30)
+
+
 //Programm to run here:
-//alert("Success") - testing js linked to html, it is... but the below doesn't work
-// startBtn.addEventListener("click", activate());
-Go.addEventListener("click", function(){alert("go")}); //test code
+goPlay.addEventListener("click", function(){
+    activate();
+    console.log('start pressed');
+    }); //test code
+
+
+
+
+// Trying to figure out how to change the color of the squares?
+
+// var colors =["blue", "purple", "green", "red", "rgb(250, 175, 72)"];
+
+// var square =document.querySelectorAll(".square");
+ 
+// Array.prototype.forEach.call(square, function(square) {
+//   square.addEventListener("click", function() {
+//     var colorNum = Math.floor(Math.random() * colors.length);
+//     square.style['background-color'] = colors[colorNum];
+//   });
+// });

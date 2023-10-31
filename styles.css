@@ -12,19 +12,19 @@
   } */
 
   /* Kristy CSS*/
-.body {
+body {
     background-color: #c3d1ff;
     margin: 1;
     font-family:"calibri";
 }
-.h1 {
+h1 {
   margin: 0 auto;
   text-align: center;
   line-height: 2.1;
   font-weight: normal; 
   color: black;
 }
-.h2 {
+h2 {
   text-align: center; 
   line-height: 1.1;
   font-weight: normal; 
@@ -43,3 +43,11 @@
     float: left;
     margin: 1.66%;
 } 
+
+#grid {        
+  width: 200px;
+  height: 200px;
+  background-color: getRandomColor();
+  display: none;
+  position: relative; 
+}
