@@ -10,8 +10,11 @@ function randomSix() {
 
 //Deactivate all the divs: untested
 function deactivate() {
-divClass.style.backgroundColor = 'blue';
-divClass.removeEventListener('click', function(){});//the function needs to be the same as the function name called in Active - this might also need to be applied to divActive after click
+    for (let i = 0; i < divArray.length; i++) {
+        divArray[i].style.backgroundColor = 'blue';
+        // divArray[i].removeEventListener('click', function(){});
+    }    
+//the function needs to be the same as the function name called in Active - this might also need to be applied to divActive after click
 }
 
 
@@ -19,22 +22,22 @@ divClass.removeEventListener('click', function(){});//the function needs to be t
 function activate() {
     i = randomSix();
     divArray[i].style.backgroundColor = 'red';
-    // divArray[i].addEventListener("click", function(){ //add function here
-        
-    // });
+    divArray[i].addEventListener("click", function(){
+      deactivate();  
+    });
 }
 
-//Timer
-function timer() {
-    let countdown = 60
-    while (countdown > 0){
-     console.log(countdown);
-     countdown--;
-    }
-    console.log("Game over");     
-}
+//Timer v.1
+// function timer() {
+//     let countdown = 60
+//     while (countdown > 0){
+//      console.log(countdown);
+//      countdown--;
+//     }
+//     console.log("Game over");     
+// }
 
-// console timer
+// console timer - v2
 
 function startCountdown(seconds) {
     let counter = seconds;
@@ -44,8 +47,8 @@ function startCountdown(seconds) {
       counter--;
   
       if (counter < 0) {
-        clearInterval(interval)
-        console.log('Game Over!')
+        clearInterval(interval);
+        alert('Game Over!');
       }
     }, 1000);
   }
@@ -56,8 +59,8 @@ function startCountdown(seconds) {
 //Programm to run here:
 goPlay.addEventListener("click", function(){
     activate();
-    console.log('start pressed');
-    }); //test code
+    console.log('Game started');
+    });
 
 
 
