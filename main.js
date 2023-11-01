@@ -1,5 +1,6 @@
 const divArray = document.getElementsByClassName("square");
 const goPlay = document.getElementById("StartBtn");
+let gameScore = 0;
 
 //Random number generator - tested, generates a random number from 1 to 6 - not sure about how it's passing the number out?
 function randomSix() {
@@ -17,14 +18,18 @@ function deactivate() {
 //the function needs to be the same as the function name called in Active - this might also need to be applied to divActive after click
 }
 
-
-//Activate one div - untested and needs the click functionality added
+//Activate one div, on click: increment the game score, deactivate ALL divs, then activate new div
 function activate() {
     i = randomSix();
+    console.log('random '+ i);
     divArray[i].style.backgroundColor = 'red';
     divArray[i].addEventListener("click", function(){
-      deactivate();  
+        deactivate()
+        gameScore++;
+        console.log(gameScore);
+        divArray[i].addEventListener("mouseUp", activate());
     });
+    
 }
 
 //Timer v.1
@@ -48,12 +53,17 @@ function startCountdown(seconds) {
   
       if (counter < 0) {
         clearInterval(interval);
-        alert('Game Over!');
+        alert('Game Over! Your score is: ' + gameScore);
       }
     }, 1000);
   }
   
-//   startCountdown(30)
+//   startCountdown(30) //temporarily blocked out
+
+function runGame (){
+    activate();
+
+}
 
 
 //Programm to run here:
