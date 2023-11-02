@@ -1,8 +1,10 @@
 const divArray = document.getElementsByClassName("square");
 const goPlay = document.getElementById("StartBtn");
 let gameScore = 0;
+let rndmChk = 6;
 
 //Random number generator - tested, generates a random number from 1 to 6 - not sure about how it's passing the number out?
+
 function randomSix() {
     let divNo = Math.floor(Math.random() * 6);
   /*   console.log(divNo); //remove later */
@@ -22,33 +24,27 @@ function deactivate() {
 function activate() {
     i = randomSix();
     console.log('random '+ i);
+    if (i = rndmChk) {
+        i=randomSix();
+        console.log('check ' + i)
+        };
     divArray[i].style.backgroundColor = 'red';
     divArray[i].addEventListener("click", function(){
         deactivate()
         gameScore++;
-        console.log(gameScore);
-        divArray[i].addEventListener("mouseUp", activate());
+        console.log("Gamescore " + gameScore);
+        divArray[i].addEventListener("mouseUp",   activate());
     });
     
 }
 
-//Timer v.1
-// function timer() {
-//     let countdown = 60
-//     while (countdown > 0){
-//      console.log(countdown);
-//      countdown--;
-//     }
-//     console.log("Game over");     
-// }
-
 // console timer - v2
 
 function startCountdown(seconds) {
-    let counter = seconds;
+    let counter = 15;
   
     const interval = setInterval(() => {
-      console.log(counter);
+      console.log("counter" + counter);
       counter--;
   
       if (counter < 0) {
@@ -58,18 +54,14 @@ function startCountdown(seconds) {
     }, 1000);
   }
   
-//   startCountdown(30) //temporarily blocked out
-
-function runGame (){
-    activate();
-
-}
 
 
 //Programm to run here:
 goPlay.addEventListener("click", function(){
+    startCountdown(15);
+    gameScore = 0;
     activate();
-    console.log('Game started');
+    // console.log('Game started');
     });
 
 
@@ -86,4 +78,4 @@ goPlay.addEventListener("click", function(){
 //     var colorNum = Math.floor(Math.random() * colors.length);
 //     square.style['background-color'] = colors[colorNum];
 //   });
-// });
+// }); 
